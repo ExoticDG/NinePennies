@@ -80,6 +80,6 @@ pub fn first_queries() -> (f32, String, String, String, String, String) {
 
 pub fn responce_first(result:String, user_name:String) {
 
-    println!("Alright {user_name}, the result is : {result}");
+    println!("Alright {user_name}, the result is :{result}");
 
 }
