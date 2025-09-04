@@ -2,7 +2,7 @@ use std::io;
 use std::io::{stdin, stdout, Write};
 
 
-pub fn first_queries() -> (f32, String, String, String, String) {
+pub fn first_queries() -> (f32, String, String, String, String, String) {
     
     println!("Hello and welcome to NinePennies! I am your helpful CLI array compute agent!");
 
@@ -20,7 +20,7 @@ pub fn first_queries() -> (f32, String, String, String, String) {
     println!("First I replace every second character, then every third character, and finally every fourth character.");
     println!("Once I have the result, I tell you how many times each replaced character occurred in the array I made.");
     println!("Let's get started!");
-    print!("");
+
 
 
     
@@ -31,7 +31,7 @@ pub fn first_queries() -> (f32, String, String, String, String) {
         //stdin().read_line(total_length).expect("Failed to read line");
         //total_length = total_length.trim_end_matches('\n').trim_end_matches('\r');
 
-    print!("First, I need the total length of your array: ");
+    println!("First, I need the total length of your array: ");
 
     let mut total_length = String::new();
     io::stdin()
@@ -44,7 +44,7 @@ pub fn first_queries() -> (f32, String, String, String, String) {
         .expect("Please enter a valid number");
 
 
-    print!("");
+    println!("");
 
     
     // First Character Used
@@ -75,11 +75,11 @@ pub fn first_queries() -> (f32, String, String, String, String) {
     stdin().read_line(&mut fourth_character).expect("Failed to read line");
     fourth_character = fourth_character.trim_end_matches('\n').trim_end_matches('\r').to_string();
 
-    return (total_length_f32, first_character, second_character, third_character, fourth_character);
+    return (total_length_f32, first_character, second_character, third_character, fourth_character, user_name);
 }
 
-// pub fn responce_first(result) {
+pub fn responce_first(result:String, user_name:String) {
 
-//     println!(" The result of the calculation is: {}", result);
+    println!("Alright {user_name}, the result is : {result}");
 
-// }
+}

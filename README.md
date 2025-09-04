@@ -1,0 +1,1 @@
+A relitivly simple rust program I made that takes an input and gives an output. Why do math when you can do Rust.s
