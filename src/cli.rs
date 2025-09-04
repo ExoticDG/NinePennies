@@ -2,7 +2,7 @@ use std::io;
 use std::io::{stdin, stdout, Write};
 
 
-pub fn first_queries() -> (f32, String, String, String, String, String) {
+pub fn first_queries() -> (i16, String, String, String, String, String) {
     
     println!("Hello and welcome to NinePennies! I am your helpful CLI array compute agent!");
 
@@ -38,7 +38,7 @@ pub fn first_queries() -> (f32, String, String, String, String, String) {
         .read_line(&mut total_length)
         .expect("Failed to read line");
 
-    let total_length_f32: f32 = total_length
+    let total_length: i16 = total_length
         .trim()
         .parse()
         .expect("Please enter a valid number");
@@ -80,7 +80,7 @@ pub fn first_queries() -> (f32, String, String, String, String, String) {
     stdin().read_line(&mut fourth_character).expect("Failed to read line");
     fourth_character = fourth_character.trim_end_matches('\n').trim_end_matches('\r').to_string();
 
-    return (total_length_f32, first_character, second_character, third_character, fourth_character, user_name);
+    return (total_length, first_character, second_character, third_character, fourth_character, user_name);
 }
 
 
