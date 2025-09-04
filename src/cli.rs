@@ -77,3 +77,9 @@ pub fn first_queries() -> (f32, String, String, String, String) {
 
     return (total_length_f32, first_character, second_character, third_character, fourth_character);
 }
+
+// pub fn responce_first(result) {
+
+//     println!(" The result of the calculation is: {}", result);
+
+// }
