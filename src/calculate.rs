@@ -1,8 +1,6 @@
-use std::{collections::HashMap, panic::resume_unwind, result};
 
 
-
-pub fn calculate_first_query(total_length_f32: f32, first_character: String, second_character: String, third_character: String, fourth_character: String,) -> String {
+pub fn calculate_first_query(total_length_f32: f32, first_character: String, second_character: String, third_character: String, fourth_character: String,) -> (String, Vec<i32>) {
 
 
     //TODO: Calculate how many characters of each type there are in the array
@@ -90,8 +88,31 @@ pub fn calculate_first_query(total_length_f32: f32, first_character: String, sec
 
          //println!("{first_character}: {first_count}, {second_character}: {second_count}, {third_character}: {third_count}, {fourth_character}: {fourth_count}");
 
-    let result = ("{first_character}: {first_count}, {second_character}: {second_count}, {third_character}: {third_count}, {fourth_character}: {fourth_count}").to_string();
+    let result = format!("{first_character}: {first_count}, {second_character}: {second_count}, {third_character}: {third_count}, {fourth_character}: {fourth_count}");
 
 
-   return(result);
+   return (result, result_vector);
 }
+
+// pub fn find_pattern(data: &[char]) -> Option<Vec<char>> {
+//     let n = data.len();
+//     // A pattern must repeat at least once, so its max length can only be n / 2.
+//     for len in 1..=n / 2 {
+//         // For the whole vector to be a repeating pattern, its length
+//         // must be divisible by the pattern's length.
+//         if n % len == 0 {
+//             let potential_pattern = &data[0..len];
+//             // Check if the rest of the data is made of repetitions of the potential pattern.
+//             if data
+//                 .chunks_exact(len)
+//                 .all(|chunk| chunk == potential_pattern)
+//             {
+//                 // We found the smallest pattern because we started checking from len = 1.
+//                 return Some(potential_pattern.to_vec());
+//             }
+//         }
+//     }
+
+//     // No repeating pattern was found.
+//     None
+// }

@@ -14,7 +14,7 @@ pub fn first_queries() -> (f32, String, String, String, String, String) {
     user_name = user_name.trim_end_matches('\n').trim_end_matches('\r').to_string();
 
     println!("Hello, {}! Nine in binary is 1001, My real name is 1001Pennies!", user_name);
-    print!("");
+
 
     println!("I replace characters in an array and give you the total of each occurrence.");
     println!("First I replace every second character, then every third character, and finally every fourth character.");
@@ -43,34 +43,39 @@ pub fn first_queries() -> (f32, String, String, String, String, String) {
         .parse()
         .expect("Please enter a valid number");
 
-
-    println!("");
-
     
     // First Character Used
     let mut first_character = String::new();
-    print!("Next, I need the first character you want me to use. This will be the base character that then gets replaced by the other ones: ");
+    //println!("");
+    println!("Next, I need the first character you want me to use. This will be the base character that then gets replaced by the other ones: ");
+    //println!("");
     let _ = stdout().flush(); 
     stdin().read_line(&mut first_character).expect("Failed to read line");
     first_character = first_character.trim_end_matches('\n').trim_end_matches('\r').to_string();
 
     // Second Character Used
     let mut second_character = String::new();
-    print!("Now, I need the second character. This replaces every second character in the array: ");
+    //println!("");
+    println!("Now, I need the second character. This replaces every second character in the array: ");
+    //println!("");
     let _ = stdout().flush(); 
     stdin().read_line(&mut second_character).expect("Failed to read line");
     second_character = second_character.trim_end_matches('\n').trim_end_matches('\r').to_string();
 
     // Third Character Used
     let mut third_character = String::new();
-    print!("After that I of course need the third character. You get how this works by now, right? This replaces every third character in the array: ");
+    //println!("");
+    println!("After that I of course need the third character. You get how this works by now, right? This replaces every third character in the array: ");
+    //println!("");
     let _ = stdout().flush(); 
     stdin().read_line(&mut third_character).expect("Failed to read line");
     third_character = third_character.trim_end_matches('\n').trim_end_matches('\r').to_string();
 
     // Fourth Character Used
     let mut fourth_character = String::new();
-    print!("Finally, I need the fourth character: ");
+    //println!("");
+    println!("Finally, I need the fourth character: ");
+    //println!("");
     let _ = stdout().flush(); 
     stdin().read_line(&mut fourth_character).expect("Failed to read line");
     fourth_character = fourth_character.trim_end_matches('\n').trim_end_matches('\r').to_string();
@@ -78,8 +83,12 @@ pub fn first_queries() -> (f32, String, String, String, String, String) {
     return (total_length_f32, first_character, second_character, third_character, fourth_character, user_name);
 }
 
-pub fn responce_first(result:String, user_name:String) {
 
-    println!("Alright {user_name}, the result is :{result}");
 
+
+pub fn response_first(result:String, user_name:String) {
+
+    println!("Alright {user_name}, here's how many times each character appears in the array: {result}");
+
+    println!("Would you like to continue the calculation? This would check to see if there are any looping characters.");
 }
