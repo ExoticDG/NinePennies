@@ -1,6 +1,8 @@
+use std::borrow::Borrow;
 
 
-pub fn calculate_first_query(total_length: i16, first_character: String, second_character: String, third_character: String, fourth_character: String,) -> (String, Vec<i32>) {
+
+pub fn calculate_first_query(total_length: i16, first_character: String, second_character: String, third_character: String, fourth_character: String,) -> (String, Vec<i32>, usize, usize, usize, usize) {
 
 
 
@@ -73,8 +75,25 @@ pub fn calculate_first_query(total_length: i16, first_character: String, second_
 
          //println!("{first_character}: {first_count}, {second_character}: {second_count}, {third_character}: {third_count}, {fourth_character}: {fourth_count}");
 
-    let result = format!("{first_character}: {first_count}, {second_character}: {second_count}, {third_character}: {third_count}, {fourth_character}: {fourth_count}");
+    let first_result = format!("{first_character}: {first_count}, {second_character}: {second_count}, {third_character}: {third_count}, {fourth_character}: {fourth_count}");
 
 
-   return (result, result_vector);
+   return (first_result, result_vector, first_count, second_count, third_count, fourth_count);
+}
+
+pub fn calculate_second_query(first_character_value: i16, second_character_value: i16, third_character_value: i16, fourth_character_value: i16, first_count: usize, second_count: usize, third_count: usize, fourth_count: usize) -> (i16, i16, i16, i16, i16) {
+
+    let first_count_i16 = first_count as i16;
+    let second_count_i16 = second_count as i16;
+    let third_count_i16 = third_count as i16;
+    let fourth_count_i16 = fourth_count as i16;
+
+    let first_character_total:i16 = first_character_value * first_count_i16;
+    let second_character_total:i16 = second_character_value * second_count_i16;
+    let third_character_total:i16 = third_character_value * third_count_i16;
+    let fourth_character_total:i16 = fourth_character_value * fourth_count_i16;
+
+    let total:i16 = first_character_total + second_character_total + third_character_total + fourth_character_total;
+
+    return(total, first_character_total, second_character_total, third_character_total, fourth_character_total)
 }

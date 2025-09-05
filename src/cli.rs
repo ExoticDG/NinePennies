@@ -86,9 +86,9 @@ pub fn first_queries() -> (i16, String, String, String, String, String) {
 
 
 
-pub fn response_first(result:String, user_name:String, first_character:String, second_character:String, third_character:String, fourth_character:String) -> (String, String, String, String) {
+pub fn response_first(first_result:String, user_name:String, first_character:String, second_character:String, third_character:String, fourth_character:String) -> (i16, i16, i16, i16) {
 
-    println!("Alright {user_name}, here's how many times each character appears in the array: {result}");
+    println!("Alright {user_name}, here's how many times each character appears in the array: {first_result}");
 
     let mut continue_to_total = String::new();
     println!("Would you like to continue calculations? This would solve for a total based on inputs you give for each character. (y/n)");
@@ -98,29 +98,84 @@ pub fn response_first(result:String, user_name:String, first_character:String, s
 
     if continue_to_total == ("y").trim_end_matches('\n').trim_end_matches('\r').to_string() {
 
+
+        println!("Alright! Now I need the value for the first character you gave me ({first_character}): ");
+
         let mut first_character_value = String::new();
-        println!("Alright! Now I need the value for the first character you gave me ({first_character}):");
-        let _ = stdout().flush(); 
-        stdin().read_line(&mut first_character_value).expect("Failed to read line");
-        first_character_value = first_character_value.trim_end_matches('\n').trim_end_matches('\r').to_string();
+            io::stdin()
+            .read_line(&mut first_character_value)
+            .expect("Failed to read line");
+
+        let first_character_value: i16 = first_character_value
+            .trim()
+            .parse()
+            .expect("Please enter a valid number");
+
+
+        println!("Next, I need the value for the second character you gave me ({second_character}): ");
 
         let mut second_character_value = String::new();
-        println!("Next, I need the value for the second character you gave me ({second_character}):");
-        let _ = stdout().flush(); 
-        stdin().read_line(&mut second_character_value).expect("Failed to read line");
-        second_character_value = second_character_value.trim_end_matches('\n').trim_end_matches('\r').to_string();
+            io::stdin()
+            .read_line(&mut second_character_value)
+            .expect("Failed to read line");
+
+        let second_character_value: i16 = second_character_value
+            .trim()
+            .parse()
+            .expect("Please enter a valid number");
+
+
+        println!("I'll need the third character value now ({third_character}): ");
 
         let mut third_character_value = String::new();
-        println!("I'll need the third character value now ({third_character}):");
-        let _ = stdout().flush(); 
-        stdin().read_line(&mut third_character_value).expect("Failed to read line");
-        third_character_value = third_character_value.trim_end_matches('\n').trim_end_matches('\r').to_string();
+            io::stdin()
+            .read_line(&mut third_character_value)
+            .expect("Failed to read line");
+
+        let third_character_value: i16 = third_character_value
+            .trim()
+            .parse()
+            .expect("Please enter a valid number");
+
+
+        println!("Finaly, I need the last value for the last character ({fourth_character}):");
 
         let mut fourth_character_value = String::new();
-        println!("Finaly, I need the last value for the last character ({fourth_character}):");
-        let _ = stdout().flush(); 
-        stdin().read_line(&mut fourth_character_value).expect("Failed to read line");
-        fourth_character_value = fourth_character_value.trim_end_matches('\n').trim_end_matches('\r').to_string();
+            io::stdin()
+            .read_line(&mut fourth_character_value)
+            .expect("Failed to read line");
+
+        let fourth_character_value: i16 = fourth_character_value
+            .trim()
+            .parse()
+            .expect("Please enter a valid number");
+
+
+
+
+        // let mut first_character_value = String::new();
+        // println!("Alright! Now I need the value for the first character you gave me ({first_character}):");
+        // let _ = stdout().flush(); 
+        // stdin().read_line(&mut first_character_value).expect("Failed to read line");
+        // first_character_value = first_character_value.trim_end_matches('\n').trim_end_matches('\r').to_string();
+
+        // let mut second_character_value = String::new();
+        // println!("Next, I need the value for the second character you gave me ({second_character}):");
+        // let _ = stdout().flush(); 
+        // stdin().read_line(&mut second_character_value).expect("Failed to read line");
+        // second_character_value = second_character_value.trim_end_matches('\n').trim_end_matches('\r').to_string();
+
+        // let mut third_character_value = String::new();
+        // println!("I'll need the third character value now ({third_character}):");
+        // let _ = stdout().flush(); 
+        // stdin().read_line(&mut third_character_value).expect("Failed to read line");
+        // third_character_value = third_character_value.trim_end_matches('\n').trim_end_matches('\r').to_string();
+
+        // let mut fourth_character_value = String::new();
+        // println!("Finaly, I need the last value for the last character ({fourth_character}):");
+        // let _ = stdout().flush(); 
+        // stdin().read_line(&mut fourth_character_value).expect("Failed to read line");
+        // fourth_character_value = fourth_character_value.trim_end_matches('\n').trim_end_matches('\r').to_string();
 
         return (first_character_value, second_character_value, third_character_value, fourth_character_value)
     } 
@@ -132,4 +187,11 @@ pub fn response_first(result:String, user_name:String, first_character:String, s
     };
 
     //println!("Would you like to continue the calculation? This would check to see if there are any looping characters. (y/n)");
+}
+
+pub fn responce_second (total:i32, first_character_total:i32, second_character_total:i32, third_character_total:i32, fourth_character_total:i32, user_name:String) {
+
+    println!("Alright {user_name}, here's how many times each character appears in the array: {first_result}");
+
+
 }
