@@ -86,7 +86,7 @@ pub fn first_queries() -> (i16, String, String, String, String, String) {
 
 
 
-pub fn response_first(result:String, user_name:String, first_character:String, second_character:String, third_character:String, fourth_character:String) {
+pub fn response_first(result:String, user_name:String, first_character:String, second_character:String, third_character:String, fourth_character:String) -> (String, String, String, String) {
 
     println!("Alright {user_name}, here's how many times each character appears in the array: {result}");
 
@@ -125,11 +125,11 @@ pub fn response_first(result:String, user_name:String, first_character:String, s
         return (first_character_value, second_character_value, third_character_value, fourth_character_value)
     } 
     
-    else if continue_to_total == ("n").trim_end_matches('\n').trim_end_matches('\r').to_string() {
+    else {
 
         std::process::exit(0);
 
-    }
+    };
 
     //println!("Would you like to continue the calculation? This would check to see if there are any looping characters. (y/n)");
 }
