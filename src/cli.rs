@@ -86,9 +86,50 @@ pub fn first_queries() -> (i16, String, String, String, String, String) {
 
 
 
-pub fn response_first(result:String, user_name:String) {
+pub fn response_first(result:String, user_name:String, first_character:String, second_character:String, third_character:String, fourth_character:String) {
 
     println!("Alright {user_name}, here's how many times each character appears in the array: {result}");
 
-    println!("Would you like to continue the calculation? This would check to see if there are any looping characters.");
+    let mut continue_to_total = String::new();
+    println!("Would you like to continue calculations? This would solve for a total based on inputs you give for each character. (y/n)");
+    let _ = stdout().flush(); 
+    stdin().read_line(&mut continue_to_total).expect("Failed to read line");
+    continue_to_total = continue_to_total.trim_end_matches('\n').trim_end_matches('\r').to_string();
+
+    if continue_to_total == ("y").trim_end_matches('\n').trim_end_matches('\r').to_string() {
+
+        let mut first_character_value = String::new();
+        println!("Alright! Now I need the value for the first character you gave me ({first_character}):");
+        let _ = stdout().flush(); 
+        stdin().read_line(&mut first_character_value).expect("Failed to read line");
+        first_character_value = first_character_value.trim_end_matches('\n').trim_end_matches('\r').to_string();
+
+        let mut second_character_value = String::new();
+        println!("Next, I need the value for the second character you gave me ({second_character}):");
+        let _ = stdout().flush(); 
+        stdin().read_line(&mut second_character_value).expect("Failed to read line");
+        second_character_value = second_character_value.trim_end_matches('\n').trim_end_matches('\r').to_string();
+
+        let mut third_character_value = String::new();
+        println!("I'll need the third character value now ({third_character}):");
+        let _ = stdout().flush(); 
+        stdin().read_line(&mut third_character_value).expect("Failed to read line");
+        third_character_value = third_character_value.trim_end_matches('\n').trim_end_matches('\r').to_string();
+
+        let mut fourth_character_value = String::new();
+        println!("Finaly, I need the last value for the last character ({fourth_character}):");
+        let _ = stdout().flush(); 
+        stdin().read_line(&mut fourth_character_value).expect("Failed to read line");
+        fourth_character_value = fourth_character_value.trim_end_matches('\n').trim_end_matches('\r').to_string();
+
+        return (first_character_value, second_character_value, third_character_value, fourth_character_value)
+    } 
+    
+    else if continue_to_total == ("n").trim_end_matches('\n').trim_end_matches('\r').to_string() {
+
+        std::process::exit(0);
+
+    }
+
+    //println!("Would you like to continue the calculation? This would check to see if there are any looping characters. (y/n)");
 }

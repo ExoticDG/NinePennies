@@ -13,7 +13,8 @@ fn main() {
 
     let (result, result_vector) = calculate_first_query(total_length, first_character, second_character, third_character, fourth_character);
 
-    response_first(result, user_name);
+    //let (first_character_value, second_character_value, third_character_value, fourth_character_value) = response_first(result, user_name, first_character, second_character, third_character, fourth_character);
+   // response_first(result, user_name, first_character, second_character, third_character, fourth_character);
 
     //println!(" The result of the calculation is: {}", result);
 
