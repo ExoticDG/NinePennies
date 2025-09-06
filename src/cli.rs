@@ -138,7 +138,7 @@ pub fn response_first(first_result:String, user_name:String, first_character:Str
             .expect("Please enter a valid number");
 
 
-        println!("Finaly, I need the last value for the last character ({fourth_character}):");
+        println!("Finally, I need the last value for the last character ({fourth_character}):");
 
         let mut fourth_character_value = String::new();
             io::stdin()
@@ -189,9 +189,8 @@ pub fn response_first(first_result:String, user_name:String, first_character:Str
     //println!("Would you like to continue the calculation? This would check to see if there are any looping characters. (y/n)");
 }
 
-pub fn responce_second (total:i32, first_character_total:i32, second_character_total:i32, third_character_total:i32, fourth_character_total:i32, user_name:String) {
+pub fn responce_second (total:i16, first_character_total:i16, second_character_total:i16, third_character_total:i16, fourth_character_total:i16, user_name:String) {
 
-    println!("Alright {user_name}, here's how many times each character appears in the array: {first_result}");
-
+    println!("{user_name}, the total value of the first character is: {first_character_total}, second is {second_character_total}, third is {third_character_total}, and fourth is {fourth_character_total}. The final total is: {total}.");
 
 }

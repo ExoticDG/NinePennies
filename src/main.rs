@@ -20,7 +20,7 @@ fn main() {
    
     let (total, first_character_total, second_character_total, third_character_total, fourth_character_total) = calculate_second_query(first_character_value.clone(), second_character_value.clone(), third_character_value.clone(), fourth_character_value.clone(), first_count.clone(), second_count.clone(), third_count.clone(), fourth_count.clone());
    
-    responce_second(total, first_character_value, second_character_value, third_character_value, fourth_character_value, user_name.clone());
+    responce_second(total, first_character_total, second_character_total, third_character_total, fourth_character_total, user_name.clone());
 
    // response_first(result, user_name, first_character, second_character, third_character, fourth_character);
 
