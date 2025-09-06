@@ -1,9 +1,15 @@
+import sys
+
+
+import sys
+
+
 def first_queries():
 
     print("Hello and welcome to NinePennies! I am your helpful CLI array compute agent!")
 
     user_name = input("Please enter your name: ").strip()
-    print(f"Hello, {user_name}! Nine in binary is 1001, My real name is 1001Pennies!")
+    print("Hello, {}! Nine in binary is 1001, My real name is 1001Pennies!".format(user_name))
 
     print("\nI replace characters in an array and give you the total of each occurrence.")
     print("First I replace every second character, then every third character, and finally every fourth character.")
@@ -30,64 +36,82 @@ def first_queries():
 
 def calculate_first_query(total_length, first_char, second_char, third_char, fourth_char):
     """
-    Performs the character replacement and counts the occurrences.
+    Calculates the occurrences of each character without storing the full sequence in memory.
+    This is more memory-efficient for devices with limited RAM.
     """
-    # Using a list of integers (0, 1, 2, 3) to represent the characters
-    # for memory efficiency instead of storing strings.
-    # 0: first_character, 1: second_character, etc.
-    result_sequence = [0] * total_length
+    first_count = 0
+    second_count = 0
+    third_count = 0
+    fourth_count = 0
 
-    for i in range(1, total_length, 2): # Every 2nd element (index 1, 3, 5...)
-        result_sequence[i] = 1
+    for i in range(1, total_length + 1):
+        if i % 4 == 0:
+            fourth_count += 1
+        elif i % 3 == 0:
+            third_count += 1
+        elif i % 2 == 0:
+            second_count += 1
+        else:
+            first_count += 1
     
-    for i in range(2, total_length, 3): # Every 3rd element (index 2, 5, 8...)
-        result_sequence[i] = 2
-
-    for i in range(3, total_length, 4): # Every 4th element (index 3, 7, 11...)
-        result_sequence[i] = 3
-
-    # Count occurrences of each number
-    first_count = result_sequence.count(0)
-    second_count = result_sequence.count(1)
-    third_count = result_sequence.count(2)
-    fourth_count = result_sequence.count(3)
-
-    result_string = (
-        f"{first_char}: {first_count}, {second_char}: {second_count}, "
-        f"{third_char}: {third_count}, {fourth_char}: {fourth_count}"
+    result_string = "{}: {}, {}: {}, {}: {}, {}: {}".format(
+        first_char, first_count, second_char, second_count,
+        third_char, third_count, fourth_char, fourth_count
     )
 
     return result_string, first_count, second_count, third_count, fourth_count
 
-def response_first(first_result, user_name, char_map):
+def response_first(first_result, user_name, first_char, second_char, third_char, fourth_char):
     """
     Displays the first result and asks the user if they want to continue.
     """
-    print(f"\nAlright {user_name}, here's how many times each character appears in the array: {first_result}")
+    print("\nAlright {}, here's how many times each character appears in the array: {}".format(user_name, first_result))
 
     while True:
-        continue_to_total = input("\nWould you like to continue calculations? This would solve for a total based on inputs you give for each character. (y/n)").lower().strip()
+        continue_to_total = input("\nWould you like to continue calculations? (y/n)").lower().strip()
         if continue_to_total in ['y', 'n']:
             break
         print("Invalid input. Please enter 'y' or 'n'.")
 
     if continue_to_total == 'n':
         print("Goodbye!")
-        sys.exit(0)
+        return None # Return None to signal exiting
 
     print("\nAlright! Now I need a numerical value for each character.")
     
-    values = {}
-    for i, char_name in enumerate(char_map):
-        while True:
-            try:
-                val_str = input(f"Please enter the value for '{char_map[char_name]}': ")
-                values[char_name] = int(val_str)
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid integer.")
+    while True:
+        try:
+            val1_str = input("Please enter the value for '{}': ".format(first_char))
+            first_val = int(val1_str)
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+            
+    while True:
+        try:
+            val2_str = input("Please enter the value for '{}': ".format(second_char))
+            second_val = int(val2_str)
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+
+    while True:
+        try:
+            val3_str = input("Please enter the value for '{}': ".format(third_char))
+            third_val = int(val3_str)
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+
+    while True:
+        try:
+            val4_str = input("Please enter the value for '{}': ".format(fourth_char))
+            fourth_val = int(val4_str)
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
     
-    return values['first'], values['second'], values['third'], values['fourth']
+    return first_val, second_val, third_val, fourth_val
 
 def calculate_second_query(first_value, second_value, third_value, fourth_value, first_count, second_count, third_count, fourth_count):
     """
@@ -102,17 +126,17 @@ def calculate_second_query(first_value, second_value, third_value, fourth_value,
 
     return total, first_total, second_total, third_total, fourth_total
 
-def response_second(total, first_total, second_total, third_total, fourth_total, user_name, char_map):
+def response_second(total, first_total, second_total, third_total, fourth_total, user_name, first_char, second_char, third_char, fourth_char):
     """
     Displays the final calculated totals.
     """
-    print(f"\n{user_name}, here are the final results:")
-    print(f"Total value from '{char_map['first']}': {first_total}")
-    print(f"Total value from '{char_map['second']}': {second_total}")
-    print(f"Total value from '{char_map['third']}': {third_total}")
-    print(f"Total value from '{char_map['fourth']}': {fourth_total}")
-    print(f"-----------------------------------")
-    print(f"The final combined total is: {total}")
+    print("\n{}, here are the final results:".format(user_name))
+    print("Total value from '{}': {}".format(first_char, first_total))
+    print("Total value from '{}': {}".format(second_char, second_total))
+    print("Total value from '{}': {}".format(third_char, third_total))
+    print("Total value from '{}': {}".format(fourth_char, fourth_total))
+    print("-----------------------------------")
+    print("The final combined total is: {}".format(total))
 
 
 def main():
@@ -121,26 +145,25 @@ def main():
     """
     total_length, first_char, second_char, third_char, fourth_char, user_name = first_queries()
 
-    char_map = {
-        'first': first_char,
-        'second': second_char,
-        'third': third_char,
-        'fourth': fourth_char
-    }
-
     first_result, first_count, second_count, third_count, fourth_count = calculate_first_query(
         total_length, first_char, second_char, third_char, fourth_char
     )
 
-    first_val, second_val, third_val, fourth_val = response_first(first_result, user_name, char_map)
+    # The response_first function now returns a tuple of values, or None if the user quits.
+    values = response_first(first_result, user_name, first_char, second_char, third_char, fourth_char)
+    
+    # If user chose not to continue, exit the main function.
+    if values is None:
+        return
+        
+    first_val, second_val, third_val, fourth_val = values
 
     total, first_total, second_total, third_total, fourth_total = calculate_second_query(
         first_val, second_val, third_val, fourth_val,
         first_count, second_count, third_count, fourth_count
     )
 
-    response_second(total, first_total, second_total, third_total, fourth_total, user_name, char_map)
+    response_second(total, first_total, second_total, third_total, fourth_total, user_name, first_char, second_char, third_char, fourth_char)
 
-
-if __name__ == "__main__":
-    main()
+# Run the main function
+main()

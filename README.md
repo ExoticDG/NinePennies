@@ -31,3 +31,7 @@ cargo run
 3. In the terminal, run `python NinePennies.py`
 
 ### TI 84 Plus CE Python
+
+1. Download the NinePennies.py script
+
+2. Download and Install [TI Connect™ CE](https://education.ti.com/en/products/computer-software/ti-connect-ce-sw)
