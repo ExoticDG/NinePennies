@@ -193,4 +193,6 @@ pub fn responce_second (total:i16, first_character_total:i16, second_character_t
 
     println!("{user_name}, the total value of the first character is: {first_character_total}, second is {second_character_total}, third is {third_character_total}, and fourth is {fourth_character_total}. The final total is: {total}.");
 
+    io::stdin().read_line(&mut String::new()).unwrap();
+
 }
