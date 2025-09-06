@@ -34,4 +34,34 @@ cargo run
 
 1. Download the NinePennies.py script
 
-2. Download and Install [TI Connect™ CE](https://education.ti.com/en/products/computer-software/ti-connect-ce-sw)
+2. Download and Install *[TI Connect™ CE](https://education.ti.com/en/products/computer-software/ti-connect-ce-sw)*
+
+3. Connect the TI-84 Plus CE Python to the computer via the included mini USB-B to USB-A cable
+
+4. Run TI Connect™ CE and ensure the calculator is connected
+
+5. In the TI Connect™ CE software, open the `Calculator Explorer Workspace` (the second tab)
+
+![TI Boot Screen](https://github.com/ExoticDG/NinePennies/blob/9350548323f4c958fdde1adb9a7a95fa1c0e6b7c/assests/TI%20Connect%E2%84%A2%20CE%20Boot%20Screen.png)
+
+6. Click on `Add content from computer to calculators`
+
+![TI Calc Explorer Window](https://github.com/ExoticDG/NinePennies/blob/9350548323f4c958fdde1adb9a7a95fa1c0e6b7c/assests/TI%20Connect%E2%84%A2%20CE%20Cacl%20Exploror%20Window.png)
+
+7. Navigate to the Python program
+
+8. Upload and name it
+
+![TI Name 1](https://github.com/ExoticDG/NinePennies/blob/9350548323f4c958fdde1adb9a7a95fa1c0e6b7c/assests/TI%20Connect%E2%84%A2%20CE%20Name.png)
+
+![TI Name 2](https://github.com/ExoticDG/NinePennies/blob/9350548323f4c958fdde1adb9a7a95fa1c0e6b7c/assests/TI%20Connect%E2%84%A2%20CE%20Name%202.png)
+
+![TI Name 3](https://github.com/ExoticDG/NinePennies/blob/9350548323f4c958fdde1adb9a7a95fa1c0e6b7c/assests/TI%20Connect%E2%84%A2%20CE%20Name%203.png)
+
+![TI Upload](https://github.com/ExoticDG/NinePennies/blob/9350548323f4c958fdde1adb9a7a95fa1c0e6b7c/assests/TI%20Connect%E2%84%A2%20CE%20Upload.png)
+
+9. On the calculator, press the `apps` key
+
+10. Navigate down to `Python` and select it
+
+11. Navigate down to the listing that matches the name you input earlier and select it to run.
